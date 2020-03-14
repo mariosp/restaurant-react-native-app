@@ -56,8 +56,7 @@ export const fetchDishes = () => (dispatch) => {
 };
 
 export const dishesLoading = () => ({
-    type: ActionTypes.DISHES_LOADING,
-    payload: errmess
+    type: ActionTypes.DISHES_LOADING
 });
 
 export const addDishes = (dishes) => ({
@@ -70,7 +69,7 @@ export const addDishes = (dishes) => ({
 export const fetchPromos = () => (dispatch) => {
     dispatch(promosLoading());
 
-    return fetch(baseUrl + 'promos')
+    return fetch(baseUrl + 'promotions')
         .then(response => {
             if (response.ok){
                 return response
