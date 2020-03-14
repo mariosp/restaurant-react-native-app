@@ -59,6 +59,11 @@ export const dishesLoading = () => ({
     type: ActionTypes.DISHES_LOADING
 });
 
+export const dishesFailed = (errMess)=> ({
+    type: ActionTypes.DISHES_FAILED,
+    payload: errMess
+})
+
 export const addDishes = (dishes) => ({
     type: ActionTypes.ADD_DISHES,
     payload: dishes
