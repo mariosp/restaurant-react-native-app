@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "yarn run json-server --watch db.json -d 2000 -p 3001"
+    "start": "yarn run json-server --watch db.json -d 2000 -p 3001",
+    "machine": "yarn run json-server --host 192.168.1.66 --watch db.json -d 2000 -p 3001"
   },
   "author": "",
   "license": "ISC",

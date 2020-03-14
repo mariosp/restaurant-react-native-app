@@ -27,9 +27,26 @@ export const commentsFailed = (errmess) => ({
     payload: errmess
 });
 
-export const addComment = (comments) => ({
+export const addComments = (comments) => ({
     type: ActionTypes.ADD_COMMENTS,
     payload: comments
+});
+
+export const postComment = (dishId, rating, author, comment, date) => (dispatch) =>{
+    setTimeout(()=>{
+        dispatch(addComment(dishId, rating, author, comment, date));
+    },2000)
+}
+
+export const addComment = (dishId, rating, author, comment, date) => ({
+    type: ActionTypes.ADD_COMMENT,
+    payload: {
+        dishId,
+        rating,
+        author,
+        comment,
+        date
+    }
 });
 
 //dishes
