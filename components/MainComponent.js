@@ -5,13 +5,14 @@ import Dishdetail from "./DishdetailComponent";
 import Reservation from "./ReservationComponent";
 import Favorites from "./FavoriteComponent";
 import Login from "./LoginComponent";
-import {View, Platform, Image, Text, StyleSheet, ScrollView} from "react-native";
+import {View, Platform, Image, Text, StyleSheet, ScrollView, ToastAndroid} from "react-native";
 import {createDrawerNavigator, createStackNavigator, DrawerItems, SafeAreaView} from "react-navigation";
 import Contact from "./ContactComponent";
 import About from "./AboutComponent";
 import {Icon} from "react-native-elements"
 import {connect } from "react-redux";
 import { fetchDishes, fetchComments, fetchPromos, fetchLeaders} from "../redux/ActionCreators";
+import NetInfo from "@react-native-community/netinfo";
 
 const mapStateToProps = state =>{
     return {
@@ -226,7 +227,36 @@ class Main extends Component{
         this.props.fetchComments();
         this.props.fetchPromos();
         this.props.fetchLeaders();
+
+        NetInfo.fetch().then((connectionInfo) => {
+            ToastAndroid.show('Initial network ' + connectionInfo.type, ToastAndroid.LONG)
+        });
+
+        this.unsubscribe = NetInfo.addEventListener('connectionChange', this.handleConnectivityChange);
     }
+
+    componentWillUnmount() {
+        this.unsubscribe();
+    }
+
+    handleConnectivityChange = (connectionInfo) => {
+        switch (connectionInfo.type) {
+            case 'none':
+                ToastAndroid.show('You are offline', ToastAndroid.LONG);
+                break;
+            case 'wifi':
+                ToastAndroid.show('You are now on wifi', ToastAndroid.LONG);
+                break;
+            case 'cellular':
+                ToastAndroid.show('You are cellular', ToastAndroid.LONG);
+                break;
+            case 'unknown':
+                ToastAndroid.show('You are on unknown network', ToastAndroid.LONG);
+                break;
+            default:
+                break;
+        }
+    };
 
     render() {
         return(
