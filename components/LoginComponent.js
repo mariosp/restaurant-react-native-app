@@ -4,6 +4,8 @@ import { Icon, Input, CheckBox, Button } from "react-native-elements";
 import * as SecureStore from 'expo-secure-store';
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
+import * as ImageManipulator from "expo-image-manipulator";
+import * as Asset from "expo-asset";
 import { createBottomTabNavigator } from "react-navigation";
 import { baseUrl} from "../shared/baseUrl";
 
@@ -135,9 +137,21 @@ class RegisterTab extends Component {
             });
 
             if(!capturedImage.cancelled) {
-                this.setState({imageUrl: capturedImage.uri})
+                this.processImage(capturedImage.uri);
             }
         }
+    };
+
+    processImage = async (imageUri) => {
+      let processedImage = await ImageManipulator.manipulateAsync(
+          imageUri,
+          [
+              {resize: {width: 400}}
+              ],
+        { format: 'png' }
+      );
+
+      this.setState({ imageUri: processedImage.uri});
     };
 
     static navigationOptions = {
@@ -163,17 +177,20 @@ class RegisterTab extends Component {
     }
 
     render() {
+        console.log(this.state.imageUrl)
         return(
             <ScrollView>
             <View style={styles.container}>
 
                 <View style={styles.imageContainer}>
                     <Image
+                        style={styles.image}
                         source={{uri: this.state.imageUrl}}
-                        loadingIndicatorSource={require('.images/logo.png')}
+                        loadingIndicatorSource={require('./images/logo.png')}
                     />
                     <Button title="Camera" onPress={this.getImageFromCamera}/>
                 </View>
+
                 <Input
                     placeholder="Username"
                     leftIcon={{type: "font-awesome", name: 'user-o'}}
@@ -225,7 +242,7 @@ class RegisterTab extends Component {
                 <View style={styles.formButton}>
                     <Button
                         title='Register'
-                        onPress={()=> this.handleResister()}
+                        onPress={()=> this.handleRegister()}
                         icon={<Icon name="user-plus" size={24} type="font-awesome" color="white" />}
                         buttonStyle={{backgroundColor: '#512DAB'}}
                     />
