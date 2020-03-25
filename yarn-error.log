@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add expo-asset@~8.0.0
+  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add expo-calendar@~8.0.0
 
 PATH: 
   C:\Users\mario\Documents\coursera\ReactNative\app\node_modules\.bin;C:\Python27\;C:\Python27\Scripts;C:\Program Files\Microsoft MPI\Bin\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\WINDOWS\System32\OpenSSH\;C:\Go\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\PostgreSQL\pg11\bin;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\MATLAB\R2019b\bin;C:\Users\mario\AppData\Local\Programs\Python\Python37;C:\Gradle\gradle-6.0.1\bin;C:\Program Files\Java\jdk1.8.0_231\bin;C:\Program Files\PuTTY\;C:\Program Files\Java\jdk1.8.0_231\bin;C:\Users\mario\AppData\Local\Android\Sdk\platform-tools;C:\Users\mario\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files (x86)\apache-maven-3.6.3\bin;C:\Users\mario\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\mario\AppData\Local\Programs\Python\Python37\;C:\Program Files\Microsoft MPI\Bin\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\WINDOWS\System32\OpenSSH\;C:\Go\bin;C:\Program Files\Microsoft\Web Platform Installer\;C:\PostgreSQL\pg11\bin;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\MATLAB\R2019b\bin;C:\Users\mario\AppData\Local\Android\Sdk\platform-tools;C:\Users\mario\AppData\Local\atom\bin;C:\Users\mario\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\mario\go\bin;C:\Program Files\heroku\bin;C:\Users\mario\AppData\Local\.meteor\;C:\Users\mario\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\WebStorm 2019.2.3\bin;C:\Users\mario\AppData\Roaming\npm;C:\Users\mario\AppData\Roaming\nvm;C:\Program Files\nodejs
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\mario\Documents\coursera\ReactNative\app\node_modules\source-map-resolve\node_modules\.bin'
+  Error: EPERM: operation not permitted, unlink 'C:\Users\mario\Documents\coursera\ReactNative\app\node_modules\@babel\helper-builder-react-jsx-experimental\lib'
 
 npm manifest: 
   {
@@ -28,7 +28,9 @@ npm manifest:
     },
     "dependencies": {
       "@react-native-community/masked-view": "0.1.5",
+      "@react-native-community/netinfo": "^4.6.0",
       "expo": "~36.0.0",
+      "expo-asset": "~8.0.0",
       "expo-image-manipulator": "~8.0.0",
       "expo-image-picker": "~8.0.1",
       "expo-mail-composer": "~8.0.0",
