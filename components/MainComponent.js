@@ -229,7 +229,7 @@ class Main extends Component{
         this.props.fetchLeaders();
 
         NetInfo.fetch().then((connectionInfo) => {
-            ToastAndroid.show('Initial network ' + connectionInfo, ToastAndroid.LONG)
+            // ToastAndroid.show('Initial network ' + connectionInfo, ToastAndroid.LONG)
         });
 
         this.unsubscribe = NetInfo.addEventListener('connectionChange', this.handleConnectivityChange);
